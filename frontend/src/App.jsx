@@ -3,6 +3,7 @@ import './App.css';
 import ProductList from './ProductList';
 import CategoryFilter from './CategoryFilter';
 
+
 function App() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -11,16 +12,19 @@ function App() {
   const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/products')
+    const BASE_URL = 'https://demo-ecommerce-app-vvx7.onrender.com';
+
+    fetch(`${BASE_URL}/api/products`)
       .then(res => res.json())
       .then(setProducts)
       .catch(err => console.error('Error fetching products:', err));
 
-    fetch('http://localhost:8080/api/categories')
+    fetch(`${BASE_URL}/api/categories`)
       .then(res => res.json())
       .then(setCategories)
       .catch(err => console.error('Error fetching categories:', err));
   }, []);
+
 
   const handleSearchChange = (e) => setSelectTerm(e.target.value);
   const handleSortChange = (e) => setSortOrder(e.target.value);
