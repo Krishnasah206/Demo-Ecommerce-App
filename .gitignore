@@ -1,0 +1,16 @@
+# Ignore frontend artifacts
+/frontend/node_modules/
+/frontend/build/
+
+# Ignore backend artifacts
+/backend/target/
+
+# Ignore environment variables
+.env
+
+# Ignore IDE/system files
+*.iml
+.idea/
+.vscode/
+.DS_Store
+*.log
