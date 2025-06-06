@@ -3,7 +3,7 @@ import './App.css';
 import ProductList from './ProductList';
 import CategoryFilter from './CategoryFilter';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = "http://localhost:8080";
 
 function App() {
   const [products, setProducts] = useState([]);
