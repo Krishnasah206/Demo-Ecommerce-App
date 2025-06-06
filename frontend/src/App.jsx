@@ -3,6 +3,7 @@ import './App.css';
 import ProductList from './ProductList';
 import CategoryFilter from './CategoryFilter';
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -12,18 +13,18 @@ function App() {
   const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
-    const BASE_URL = 'https://demo-ecommerce-app-vvx7.onrender.com';
 
-    fetch(`${BASE_URL}/api/products`)
+    fetch(`${API_BASE}/api/products`)
       .then(res => res.json())
       .then(setProducts)
       .catch(err => console.error('Error fetching products:', err));
 
-    fetch(`${BASE_URL}/api/categories`)
+    fetch(`${API_BASE}/api/categories`)
       .then(res => res.json())
       .then(setCategories)
       .catch(err => console.error('Error fetching categories:', err));
   }, []);
+
 
 
   const handleSearchChange = (e) => setSelectTerm(e.target.value);
